@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: transclusion block org 
+# key: tr 
+# --
+#+transclude: [[file:$1::trans-id-$2]] :src ${1:$(rui/lang-name yas-text)} :lines 2- :end "trans-id-$2-end"

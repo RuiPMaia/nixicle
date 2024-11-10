@@ -1,0 +1,12 @@
+[credential]
+	credentialStore = gpg
+	helper = gopass
+	manager = store
+	canFallBackToInsecureStore = true
+[safe]
+	directory = /home/rui/docs/ist/master_thesis
+[user]
+	name = RuiPMaia
+	signingKey = BA2EA7F502DA4B94E4108EAD09B88973B40F49F4
+[gpg]
+	program = gpg

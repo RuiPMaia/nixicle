@@ -1,0 +1,4 @@
+#!/bin/sh
+
+yay -Syu --answerupgrade None --noconfirm
+remaps

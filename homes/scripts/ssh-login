@@ -1,0 +1,4 @@
+#!/bin/sh
+
+eval `ssh-agent -s`
+ssh-add /home/rui/.ssh/id_ed25519

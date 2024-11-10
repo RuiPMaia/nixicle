@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/rui/.local/bin:/home/rui/.local/bin/cron:/home/rui/.local/bin/statusbar:/home/rui/.local/bin/__pycache__
+export LIBRARY_PATH=""
+export C_INCLUDE_PATH=""
+export CPLUS_INCLUDE_PATH=""

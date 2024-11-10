@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: transclusion block src
+# key: ts
+# --
+;; trans-id-$1
+
+`yas-selected-text`$0
+
+;; trans-id-$1-end
