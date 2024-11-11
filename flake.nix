@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+    };
+
     dwm = {
       url = "github:RuiPMaia/dwm";
       flake = false;
@@ -60,6 +64,9 @@
         home-manager.nixosModules.home-manager
         disko.nixosModules.disko
       ];
-       
+
+      systems.hosts.desktop.modules = with inputs; [
+        nixos-hardware.nixosModules.common-cpu-intel
+      ];
   };
 }

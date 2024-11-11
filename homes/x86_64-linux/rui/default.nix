@@ -79,7 +79,6 @@
     };
     ".config/emacs/init.el".source = ../../dotfiles/emacs/init.el;
     ".local/share/bg".source = ../../backgrounds/thiemeyer_road_to_samarkand.jpg;
-    "./media".source = config.lib.file.mkOutOfStoreSymlink "/media";
   };
 
   home.sessionVariables = {
@@ -87,17 +86,8 @@
     BROWSER = "brave";
   };
 
-  xsession = {
-    enable = true;
-    windowManager.command = "ssh-agent dwm";
-    initExtra = ''
-      setbg &
-      xmodmap ${pkgs.writeText "xkb-layout" (lib.fileContents ../../dotfiles/x11/xmodmap)}'';
-    profilePath = ".config/x11/xprofile";
-    scriptPath = ".config/x11/xsession";
-  };
-
   nixicle = {
+    desktop.dwm.enable = true;
     programs = {
       lf.enable = true;
       zathura.enable = true;

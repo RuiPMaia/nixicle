@@ -36,7 +36,7 @@ in {
       compinit
       _comp_options+=(globdots)'';
       profileExtra = ''
-      [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $HOME/.config/x11/xsession >/dev/null 2>&1'';
+      [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $HOME/.config/x11/session >/dev/null 2>&1'';
     };
   };
 }

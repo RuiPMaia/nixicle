@@ -28,14 +28,14 @@
   time.timeZone = "Europe/Lisbon";
 
   console = {
-    font = "Lat2-Terminus16";
+    # font = "Lat2-Terminus16";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-120n.psf.gz";
     keyMap = "pt-latin1";
     earlySetup = true;
   };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = false;
   services.xserver.displayManager.startx.enable = true;
   # Configure keymap in X11
   services.xserver.xkb.layout = "pt";
