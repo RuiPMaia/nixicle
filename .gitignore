@@ -1,1 +1,2 @@
+# Running `nixos-rebuild build` or `nix build` generates a result directory.
 result

@@ -97,121 +97,45 @@
     scriptPath = ".config/x11/xsession";
   };
 
-  programs.zsh = {
-    enable = true;
-    dotDir = ".config/zsh";
-    enableCompletion = true;
-    history = {
-      save = 10000000;
-      size = 10000000;
-      path = "${config.xdg.cacheHome}/zsh/history";
+  nixicle = {
+    programs = {
+      lf.enable = true;
+      zathura.enable = true;
+      zsh.enable = true;
     };
-    syntaxHighlighting = {
+    services.dunst.enable = true;
+  };
+
+  programs = {
+    neovim = {
       enable = true;
-     # package = pkgs.zsh-syntax-highlighting;
+      defaultEditor = true;
+      # extraConfig = lib.fileContents dotfiles/.config/nvim/init.vim;
+      viAlias = true;
+      vimAlias = true;
     };
-    autocd = true;
-    initExtraBeforeCompInit = ''
-      autoload -U colors && colors
-      PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "'';
-    completionInit = ''
-      autoload -U compinit
-      zstyle ':completion:*' menu select
-      zmodload zsh/complist
-      compinit
-      _comp_options+=(globdots)'';
-    profileExtra = ''
-      [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $HOME/.config/x11/xsession >/dev/null 2>&1'';
-  };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    # extraConfig = lib.fileContents dotfiles/.config/nvim/init.vim;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.emacs = {
-    enable = true;
-    # extraConfig = lib.fileContents dotfiles/.config/emacs/init.el;
-  };
-
-  programs.lf = {
-    enable = true;
-    extraConfig = lib.fileContents ../../dotfiles/lf/lfrc;
-  };
-
-  programs.zathura = {
-    enable = true;
-    options = {
-      sandbox = "none";
-      statusbar-h-padding = 0;
-      statusbar-v-padding = 0;
-      page-padding = 1;
-      adjust-open = "best-fit";
-      selection-clipboard = "clipboard";
-      recolor-lightcolor = "#222221";
-      recolor-keephue = true;
-      default-bg = "#222230";
+    emacs = {
+      enable = true;
     };
-    mappings = {
-      u = "scroll half-up";
-      d = "scroll half-down";
-      D = "toggle_page_mode";
-      r = "reload";
-      R = "rotate";
-      K = "zoom in";
-      J = "zoom out";
-      i = "recolor";
-      p = "print";
-      g = "goto top";
-    };
-  };
 
-  programs.git = {
-    enable = true;
-    userName = "RuiPMaia";
-    userEmail = "ruipmaia29@gmail.com";
-  };
-    
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        monitor = 0;
-        follow = "keyboard";
-        width = 370;
-        height = 350;
-        offset = "0x19";
-        padding = 2;
-        horizontal_padding = 2;
-        transparency = 25;
-        font = "Monospace 12";
-        format = "<b>%s</b>\\n%b";
-      };
-      urgency_low = {
-        background = "#1d2021";
-        foreground = "#928374";
-        timeout = 3;
-      };
-      urgency_normal = {
-        foreground = "#ebdbb2";
-        background = "#458588";
-        timeout = 5;
-      };
-      urgency_critical = {
-        background = "#1cc24d";
-        foreground = "#ebdbb2";
-        frame_color = "#fabd2f";
-        timeout = 10;
-      };
+    # lf = {
+    #   enable = true;
+    #   extraConfig = lib.fileContents ../../dotfiles/lf/lfrc;
+    # };
+
+    git = {
+      enable = true;
+      userName = "RuiPMaia";
+      userEmail = "ruipmaia29@gmail.com";
     };
   };
   
-  services.emacs.enable = true;
-  services.unclutter.enable = true;
-  services.blueman-applet.enable = true;
+  services = {
+    emacs.enable = true;
+    unclutter.enable = true;
+    blueman-applet.enable = true;
+  };
 
   #wayland.windowManager.sway = {
   #  enable = true;
