@@ -33,7 +33,6 @@
     st
     dwm
     dwmblocks
-    bat
     cmake
     file
     fira-code
@@ -50,7 +49,6 @@
     libtool
     pulsemixer
     texliveFull
-    ueberzug
     xwallpaper
     xdotool
     xorg.xmodmap

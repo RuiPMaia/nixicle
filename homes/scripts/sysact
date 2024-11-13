@@ -12,7 +12,7 @@ wmpid(){ # This function is needed if there are multiple instances of the window
 
 case "$(printf "💤 sleep\n🐻 hibernate\n🔃 reboot\n🖥️ shutdown\n🔒 lock\n📺 display off\n🚪 leave $WM\n♻️ renew $WM" | dmenu -i -p 'Action: ')" in
 	'💤 sleep') slock & sudo zzz ;;
-	'🐻 hibernate') slock & sudo zzz ;;
+	'🐻 hibernate') systemctl hibernate ;;
 	'🔃 reboot') $ctl reboot -i >/dev/null 2>&1 ;;
 	'🖥️ shutdown') $ctl poweroff -i > /dev/null 2>&1 ;;
 	'🔒 lock') slock ;;

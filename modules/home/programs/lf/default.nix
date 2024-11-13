@@ -13,8 +13,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-#    xdg.configFile."lf/icons".source = ./icons;
-
+    home = {
+      # icons config file
+      file."${config.xdg.configHome}/lf/icons".source = ./icons;
+      # preview programs
+      packages = with pkgs; [
+        bat
+        poppler_utils
+        ueberzug
+        sxiv
+      ];
+    };
     programs.lf = {
       enable = true;
        commands = {
@@ -42,9 +51,6 @@ in {
          "g~" = "cd";
          gh = "cd";
          "g/" = "/";
-
-         ee = "editor-open";
-         V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
        };
        settings = {
          preview = true;
