@@ -84,6 +84,10 @@
 
   programs.zsh.enable = true;
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/rui/nixicle";
+  };
   services.openssh.enable = true;
 
   system.stateVersion = "24.11";

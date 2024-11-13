@@ -107,16 +107,12 @@
       enable = true;
     };
 
-    # lf = {
-    #   enable = true;
-    #   extraConfig = lib.fileContents ../../dotfiles/lf/lfrc;
-    # };
-
     git = {
       enable = true;
       userName = "RuiPMaia";
       userEmail = "ruipmaia29@gmail.com";
     };
+
   };
   
   services = {
