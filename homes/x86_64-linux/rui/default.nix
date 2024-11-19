@@ -28,16 +28,14 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    clang-tools
     brave
     dmenu
     st
     dwm
     dwmblocks
-    cmake
     file
     fira-code
-    gcc
-    gnumake
     curl
     wget
     iosevka
@@ -82,6 +80,7 @@
   home.sessionVariables = {
     TERMINAL = "st";
     BROWSER = "brave";
+    FLAKE = "/home/rui/nixicle/";
   };
 
   nixicle = {
@@ -113,6 +112,12 @@
       userEmail = "ruipmaia29@gmail.com";
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    nh.enable = true;
   };
   
   services = {

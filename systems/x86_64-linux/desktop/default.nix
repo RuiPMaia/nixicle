@@ -19,8 +19,18 @@
   };
 
   networking = {
-    hostName = "desktop"; # Define your hostname.
-    networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+    hostName = "desktop";
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+    useDHCP = false;
+    dhcpcd.enable = false;
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+    firewall.enable = false;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -84,10 +94,6 @@
 
   programs.zsh.enable = true;
 
-  programs.nh = {
-    enable = true;
-    flake = "/home/rui/nixicle";
-  };
   services.openssh.enable = true;
 
   system.stateVersion = "24.11";
