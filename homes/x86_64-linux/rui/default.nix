@@ -28,6 +28,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    gcc
+    cmake
+    gnumake
     clang-tools
     brave
     dmenu
@@ -81,6 +84,7 @@
     TERMINAL = "st";
     BROWSER = "brave";
     FLAKE = "/home/rui/nixicle/";
+    CC = "gcc";
   };
 
   nixicle = {

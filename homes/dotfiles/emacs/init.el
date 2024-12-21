@@ -881,7 +881,8 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 ;;   (evil-collection-define-key 'normal 'dired-mode-map
 ;;     "H" 'dired-hide-dotfiles-mode))
 
-
+(use-package envrc
+  :hook (after-init . envrc-global-mode))
 
 (setq holiday-general-holidays
       '((holiday-fixed 1 1 "New Year's Day")
