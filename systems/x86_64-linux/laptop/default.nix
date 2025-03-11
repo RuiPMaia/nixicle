@@ -18,10 +18,20 @@
     initrd.luks.devices.cryptroot.device = "/dev/disk/by-label/NIXOS";
   };
 
-  networking.hostName = "laptop"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "laptop";
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+    useDHCP = false;
+    dhcpcd.enable = false;
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+    firewall.enable = false;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
